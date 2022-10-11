@@ -11,6 +11,40 @@ sub init()
     m.rowElements = 2
 end sub
 
+sub _backToSerialGroup()
+    m.response = invalid
+    m.top.allowFocusToEpisode = false
+    m.serialGroup.visible = true
+    m.seasonList.visible = true
+    m.seasonList.setFocus(true)
+end sub
+
+sub _resetScreen()
+    m.response = invalid
+    m.top.allowFocusToEpisode = false
+    m.top.passFocusToNav = false
+    m.top.passFocusToNavi = false
+    m.top.focusPassed = false
+    if IsValid(m.arr)
+    m.arr.clear()
+    end if
+    m.counter = 0
+    m.seasonList.content = invalid
+    m.arrayTitles.clear()
+    m.seasonsData.clear()
+    m.dialog.visible = false
+    m.isError = false
+    m.countRequest = 0
+    m.rowElements = 2
+    if m.networkManager <> invalid
+        m.indexSeason = 0
+        m.networkManager.unobserveField("state")
+        m.networkManager.unobserveField("response")
+        m.networkManager.control = "stop"
+    end if
+    m.detatilsEpisode.visible = false
+end sub
+
 function onLoadData(event)
     isLoading = event.getData()
     if isLoading
@@ -224,14 +258,9 @@ sub configDialog()
 end sub
 
 sub showContent()
+    _resetScreen()
     m.seasonList.translation = [80, 828]
     m.container.translation = [0, 140]
-    m.seasonList.content = invalid
-    m.arrayTitles.clear()
-    m.seasonsData.clear()
-    m.dialog.visible = false
-    m.isError = false
-    m.countRequest = 0
     m.seasonsID = m.top.content
     if m.seasonsID.count() < 2
         lastIndex = m.seasonsID.count()
@@ -386,31 +415,10 @@ function onKeyEvent(key as string, press as boolean) as boolean
     if press
         if key = "back"
             if m.serialGroup.visible = false
-                m.serialGroup.visible = true
-                m.seasonList.visible = true
-                m.top.allowFocusToEpisode = false
-                m.response = invalid
-                m.seasonList.setFocus(true)
+                _backToSerialGroup()
                 return true
             else if m.top.backAfteLoad
-                m.top.passFocusToNav = false
-                m.top.passFocusToNavi = false
-                m.top.allowFocusToEpisode = false
-                m.top.focusPassed = false
-                m.arr.clear()
-                m.counter = 0
-                m.seasonList.content = invalid
-                m.arrayTitles.clear()
-                m.seasonsData.clear()
-                m.rowElements = 2
-                if m.networkManager <> invalid
-                    m.indexSeason = 0
-                    m.networkManager.unobserveField("state")
-                    m.networkManager.unobserveField("response")
-                    m.networkManager.control = "stop"
-                end if
-                m.detatilsEpisode.visible = false
-                m.response = invalid
+                _resetScreen()
                 return false
             end if
         else if key = "up"
