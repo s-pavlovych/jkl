@@ -11,6 +11,58 @@ sub init()
     m.rowElements = 2
 end sub
 
+sub registerView()
+    m.textContainer = m.top.findNode("textContainer")
+    m.seasonList = m.top.findNode("seasonList")
+    m.seasonList.observeField("itemFocused", "onItemFocus")
+    m.titleSerial = m.top.findNode("titleSerial")
+    m.loadingProgress = m.top.findNode("loadingProgress")
+    m.backgroundLogo = m.top.findNode("backgroundPoster")
+    m.descriptionSerial = m.top.findNode("descriptionSerial")
+    m.detatilsEpisode = m.top.findNode("detatilsEpisode")
+    m.serialGroup = m.top.findNode("SerialGroup")
+    m.backgroundGradient = m.top.findNode("backgroundGradient")
+    m.upListAnimation = m.top.findNode("upListAnimation")
+    m.downListAnimation = m.top.findNode("downListAnimation")
+    m.timer = m.top.findNode("timer")
+    m.container = m.top.findNode("container")
+    observeFields()
+    configDialog()
+    configureScreen()
+end sub
+
+sub observeFields()
+    m.timer.observeField("fire", "reloadData")
+    m.backgroundLogo.observeField("focusedChild", "onPosterGetFocus")
+    m.loadingProgress.observeField("visible", "onVisibleChange")
+    m.upListAnimation.observeField("state", "onControlChangeToPoster")
+    m.downListAnimation.observeField("state", "onControlChangeToList")
+end sub
+
+sub configDialog()
+    m.dialog = m.top.findNode("alert")
+    m.alertButtons = m.top.findNode("buttonsForAlert")
+    m.dialog.width = 1200
+    m.dialog.height = 600
+    m.dialog.translation = [350, 200]
+    m.titleAlert = m.top.findNode("titleAlert")
+    m.titleAlert.width = 1200
+    m.titleAlert.font = robotoBoldOfSize(50)
+    m.alertButtons.font = robotoBoldOfSize(35)
+    m.alertButtons.focusedFont = robotoBoldOfSize(35)
+    m.alertButtons.translation = [(m.dialog.width / 2) - 150, 350]
+end sub
+
+sub configureScreen()
+    configureSeasonList()
+    m.indexSeason = 0
+    if m.global.selectedChannel <> invalid
+        m.descriptionSerial.font = getFontForChannel(m.global.selectedChannel.objectID, 29, "light")
+        m.titleSerial.font = getFontForChannel(m.global.selectedChannel.objectID, 57, "bold")
+    end if
+    m.seasonList.observeField("itemSelected", "onItemSelected")
+end sub
+
 sub _backToSerialGroup()
     m.response = invalid
     m.top.allowFocusToEpisode = false
@@ -116,34 +168,6 @@ function onItemFocus(event)
     end if
 end function
 
-sub registerView()
-    m.textContainer = m.top.findNode("textContainer")
-    m.seasonList = m.top.findNode("seasonList")
-    m.seasonList.observeField("itemFocused", "onItemFocus")
-    m.titleSerial = m.top.findNode("titleSerial")
-    m.loadingProgress = m.top.findNode("loadingProgress")
-    m.backgroundLogo = m.top.findNode("backgroundPoster")
-    m.descriptionSerial = m.top.findNode("descriptionSerial")
-    m.detatilsEpisode = m.top.findNode("detatilsEpisode")
-    m.serialGroup = m.top.findNode("SerialGroup")
-    m.backgroundGradient = m.top.findNode("backgroundGradient")
-    m.upListAnimation = m.top.findNode("upListAnimation")
-    m.downListAnimation = m.top.findNode("downListAnimation")
-    m.timer = m.top.findNode("timer")
-    m.container = m.top.findNode("container")
-    observeFields()
-    configDialog()
-    configureScreen()
-end sub
-
-sub observeFields()
-    m.timer.observeField("fire", "reloadData")
-    m.backgroundLogo.observeField("focusedChild", "onPosterGetFocus")
-    m.loadingProgress.observeField("visible", "onVisibleChange")
-    m.upListAnimation.observeField("state", "onControlChangeToPoster")
-    m.downListAnimation.observeField("state", "onControlChangeToList")
-end sub
-
 sub onPosterGetFocus()
     m.backgroundLogo.scaleRotateCenter = [m.backgroundLogo.width / 2, m.backgroundLogo.height / 2]
     m.backgroundGradient.scaleRotateCenter = [m.backgroundGradient.width / 2, m.backgroundGradient.width / 2]
@@ -182,16 +206,6 @@ function onVisibleChange(event)
         m.top.backAfteLoad = true
     end if
 end function
-
-sub configureScreen()
-    configureSeasonList()
-    m.indexSeason = 0
-    if m.global.selectedChannel <> invalid
-        m.descriptionSerial.font = getFontForChannel(m.global.selectedChannel.objectID, 29, "light")
-        m.titleSerial.font = getFontForChannel(m.global.selectedChannel.objectID, 57, "bold")
-    end if
-    m.seasonList.observeField("itemSelected", "onItemSelected")
-end sub
 
 sub showLoadingIndicator(show)
     scene = m.top.getScene()
@@ -241,20 +255,6 @@ end sub
 
 sub onFocusToImg()
     m.backgroundLogo.setFocus(true)
-end sub
-
-sub configDialog()
-    m.dialog = m.top.findNode("alert")
-    m.alertButtons = m.top.findNode("buttonsForAlert")
-    m.dialog.width = 1200
-    m.dialog.height = 600
-    m.dialog.translation = [350, 200]
-    m.titleAlert = m.top.findNode("titleAlert")
-    m.titleAlert.width = 1200
-    m.titleAlert.font = robotoBoldOfSize(50)
-    m.alertButtons.font = robotoBoldOfSize(35)
-    m.alertButtons.focusedFont = robotoBoldOfSize(35)
-    m.alertButtons.translation = [(m.dialog.width / 2) - 150, 350]
 end sub
 
 sub showContent()
