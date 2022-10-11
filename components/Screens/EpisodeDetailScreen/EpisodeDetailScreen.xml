@@ -1,0 +1,43 @@
+<component name="EpisodeDetailScreen" extends="BaseScreen">
+    <script type="text/brightscript" uri="pkg:/components/Screens/EpisodeDetailScreen/EpisodeDetailScreen.brs" />
+
+    <interface>
+        <field id="hide_showNavigation" type="boolean" alwaysNotify="true" />
+        <field id="sentFocusToEpisode" type="boolean" alwaysNotify="true" onChange="onSentFocusToEpisodes" />
+        <field id="sentFocusToEpisodeF" type="boolean" alwaysNotify="true" onChange="onSentFocusToEpisodes" />
+        <field id="hideNavbar" type="boolean" alwaysNotify="true" />
+        <field id="hideNavbarSerials" type="boolean" alwaysNotify="true" />
+        <field id="hideNavbarFeature" type="boolean" alwaysNotify="true" />
+        <field id="passFocusToNav" type="boolean" alwaysNotify="true" />
+        <field id="passFocusToNavi" type="boolean" alwaysNotify="true" />
+        <field id="passFocusToNavigation" type="boolean" alwaysNotify="true" />
+        <field id="content" type="node" alwaysNotify="true" onChange="showContent" />
+        <field id="isFinished" type="bool" alias="videoPlayer.finishedVideo" alwaysNotify="true" onChange="finishedPlayer" />
+        <field id="showDialog" type="bool" alias="videoPlayer.showDialog" alwaysNotify="true" onChange="showDialog" />
+        <field id="configureUI" type="assocarray" />
+        <field id="percentVideo" type="bool" alias="videoPlayer.percentVideoPlaying" alwaysNotify="true" onChange="changePercent" />
+        <field id="showContent" type="node" />
+        <field id="serialContent" type="node" />
+        <field id="seasoneNumber" type="string" />
+    </interface>
+
+    <children>
+        <Group id="EpisodesGroup" translation="[0, 140]">
+            <ScrollableText id="fittingLabel" visible="false" color="65666B" width="600" lineSpacing="1" horizAlign="left" vertAlign="top" />
+            <LayoutGroup id="mainContainer" layoutDirection="horiz" translation="[46, 336]" itemSpacings="[56.0]" vertAlignment="center">
+                <RowList id="episodeShow" itemComponentName="RowItemForEpisode" itemSize="[1000, 554]" rowItemSize="[[1000, 554]]" drawFocusFeedback="true" focusBitmapBlendColor="#0646A5" />
+                <LayoutGroup id="container" translation="[1145, 300]" itemSpacings="[20.0]">
+                    <Label id="title" text="EPISODE" color="#65666B" />
+                    <Label id="titleEpisode" wrap="true" width="600" maxLines="2" color="#2C2E35" />
+                    <Label id="descriptionEpisode" width="600" wrap="true" color="#65666B" maxLines="6" lineSpacing="1" />
+                </LayoutGroup>
+            </LayoutGroup>
+            <RowList id="recommendationList" itemComponentName="CustomItemComponent" translation="[80, 660]" itemSize="[1920, 400]" rowLabelOffset="[[0, 10]]" rowLabelColor="#000000" rowItemSize="[[568, 360]]" showRowLabel="true" drawFocusFeedback="true" rowItemSpacing="[[35, 150]]" focusBitmapBlendColor="#0646A5" rowFocusAnimationStyle="floatingFocus" visible="false" />
+            <VideoPlayer id="videoPlayer" backgroundColor="0x154294" visible="false" />
+        </Group>
+        <Animation id="up_DownContainerAnimation" duration="0.5" repeat="false" easeFunction="inOutQuad">
+            <Vector2DFieldInterpolator id="translationInterpContainer" key="[0.0,1.0]" keyValue="[[46, 336], [46, 536]]" fieldToInterp="mainContainer.translation" />
+            <Vector2DFieldInterpolator id="translationInterpReccoList" key="[0.0,1.0]" keyValue="[[80, 660], [80, 500]]" fieldToInterp="recommendationList.translation" />
+        </Animation>
+    </children>
+</component>

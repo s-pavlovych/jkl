@@ -1,0 +1,14 @@
+<component name="SheduleModel" extends="BaseModel">
+    <script type="text/brightscript" uri="pkg:/components/Classes/Models/SheduleModel/SheduleModel.brs"/>
+
+    <interface>
+        <field id="begin" type="string"/>        
+        <field id="end" type="string"/>
+        <field id="titleEpisode" type="string"/>
+        <field id="titleShow" type="string"/>
+
+        <field id="episode" type="assocarray"/>
+
+        <function name="mapWith"/>        
+    </interface>
+</component>

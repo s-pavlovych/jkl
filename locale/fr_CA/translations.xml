@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file datatype="x-brs" original="components/Screens/SettingsScreen/SettingsScreen.brs" source-language="en-US" target-language="fr-CA">
+        <body>
+            <!--Insert Translations rows here similar to: <trans-unit id="0"><source>Select the style for the analog clock</source><target>Wählen Sie den Analog Clock Style</target></trans-unit>-->
+            <trans-unit id="0"> 
+                <source>Choose a channel to watch video on demand and live stream</source> 
+                <target></target> 
+            </trans-unit>
+            <trans-unit id="1"> 
+                <source>We'll refresh the app with content from </source> 
+                <target></target> 
+            </trans-unit>
+            <trans-unit id="2"> 
+                <source>About Hope Channel</source> 
+                <target></target> 
+            </trans-unit>
+            <trans-unit id="3"> 
+                <source>Hope Channel offers grograms on wholistik Christian living and focused on, health, relationships, and community. It's television that will change your life! Hope Channel began broadcasting in North America in 2003. Today, Hope Channel is a global network with more than 50 channels, each creating content in their own local language.</source> 
+                <target></target> 
+            </trans-unit>
+            <trans-unit id="4"> 
+                <source>Select a Channel</source> 
+                <target></target> 
+            </trans-unit>
+            <trans-unit id="5"> 
+                <source>Channel</source> 
+                <target></target> 
+            </trans-unit>
+            <trans-unit id="6"> 
+                <source>About</source> 
+                <target></target> 
+            </trans-unit>
+            <trans-unit id="7"> 
+                <source>Change Your Channel</source> 
+                <target></target> 
+            </trans-unit>
+            <trans-unit id="7"> 
+                <source>Cancel</source> 
+                <target></target> 
+            </trans-unit>
+        </body>
+    </file>
+
+        <file datatype="x-brs" original="source/main.brs" source-language="en-US" target-language="fr-CA">
+        <body>
+
+            <!--Insert Translations rows here similar to: <trans-unit id="0"><source>Select the style for the analog clock</source><target>Wählen Sie den Analog Clock Style</target></trans-unit>-->
+        </body>
+    </file>
+    <file datatype="x-brs" original="components/Screens/FeatureScreen/FeatureScreen.brs" source-language="en-US" target-language="fr-CA">
+        <body>
+            <trans-unit id="0"> 
+                <source>Latest Episode</source> 
+                <target></target> 
+            </trans-unit>
+                <trans-unit id="1"> 
+                <source>Trending Episode</source> 
+                <target></target> 
+            </trans-unit>
+            <trans-unit id="2"> 
+                <source>Most Watch Episode</source> 
+                <target></target> 
+            </trans-unit>
+            
+        </body>
+    </file>
+    <file datatype="x-brs" original="components/UIElements/LoadingIndicator/MainNavigationItem/MainNavigationItem.brs" source-language="en-US" target-language="fr-CA">
+        <body>
+            <trans-unit id="0"> 
+                <source>FEATURED</source> 
+                <target>Dossier</target> 
+            </trans-unit>
+             <trans-unit id="1"> 
+                <source>SHOWS</source> 
+                <target></target> 
+            </trans-unit>
+            <trans-unit id="2"> 
+                <source>LIVE</source> 
+                <target></target> 
+            </trans-unit>
+        </body>
+    </file>
+    <file datatype="x-brs" original="components/Screens/MainScene/MainScene.brs" source-language="en-US" target-language="fr-CA">
+        <body>
+            <trans-unit id="0"> 
+                <source>Are you sure you want to exit Hope Channel?</source> 
+                <target></target> 
+            </trans-unit>
+
+            <trans-unit id="1"> 
+                <source>Exit Hope Channel?</source> 
+                <target></target> 
+            </trans-unit>
+
+            <trans-unit id="1"> 
+                <source>CANCEL</source> 
+                <target></target> 
+            </trans-unit>
+
+            <trans-unit id="1"> 
+                <source>EXIT</source> 
+                <target></target> 
+            </trans-unit>
+        </body>
+    </file>
+    <file datatype="x-brs" original="components/Screens/EpisodeDetailScreen/EpisodeDetailScreen.brs" source-language="en-US" target-language="fr-CA">
+        <body>
+            <trans-unit id="0"> 
+                <source>Video format is not supported</source> 
+                <target></target> 
+            </trans-unit>
+                <trans-unit id="1"> 
+                <source>CANCEL</source> 
+                <target></target> 
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

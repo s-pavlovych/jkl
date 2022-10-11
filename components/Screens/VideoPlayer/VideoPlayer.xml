@@ -1,0 +1,46 @@
+<component name="VideoPlayer" extends="BaseScreen">
+    <script type="text/brightscript" uri="VideoPlayer.brs" />
+
+    <interface>
+        <field id="content" type="node" alwaysNotify="true" onChange="showContent" />
+        <field id="showDialog" type="bool" alwaysNotify="true" />
+        <field id="showLoaderIndicator" type="bool" />
+        <field id="stopLive" type="string" onChange="stopPlayer" />
+        <field id="isHideMenu" type="bool" alwaysNotify="true" />
+        <field id="hideload" type="bool" alwaysNotify="true" />
+        <field id="isChangePlayerStatus" type="string" onChange="changePlayerStatus" />
+        <field id="finishedVideo" type="bool" alwaysNotify="true" />
+        <field id="statePlayer" type="string" />
+        <field id="showLabel" type="bool" alwaysNotify="true" onChange="showLabel" />
+        <field id="showContent" type="bool" />
+        <field id="percentVideoPlaying" type="integer" alwaysNotify="true" />
+    </interface>
+
+    <children>
+        <LoadingIndicator id="loadingProgress" imageUri="pkg:/images/loader.png" backgroundColor="0x000000" imageWidth="100" fadeInterval="0" text="" translation="[0,370]" backgroundOpacity="0" />
+        <Video id="videoPlayer" width="1920" height="1080" />
+        <Poster id="backgroundLogo" width="1920" height="720" uri="pkg:/images/icon_focus_fhd.png" />
+        <Poster id="maskForTitle" translation="[0, 700]" width="1920" height="500" loadDisplayMode="scaleToZoom" visible="false" />
+        <RowList id="sheduleLive" visible="false" itemComponentName="SheduleComponent" translation="[80, 700]" focusFootprintBlendColor="#0646A5" rowHeights="300" itemSize="[ 1920, 100 ]" rowItemSize="[ [856, 200] ]" rowItemSpacing="[[50, 100]]" drawFocusFeedback="false" showRowLabel="[ true ]" rowFocusAnimationStyle="fixedFocusWrap" vertFocusAnimationStyle="fixedFocus" />
+        <Label id="channelName" translation="[80, 940]" height="96" width="1000" visible="false" />
+        <Label id="shannelTitle" translation="[535, 940]" height="96" width="800" horizAlign="left" color="#FFFFFF" visible="false" />
+        <Dialog id="alert" visible="false" />
+        <Timer id="timerForCheckState" repeat="true" duration="1" />
+        <Timer id="timerForCalculatePercent" repeat="true" duration="1" />
+        <Timer id="sendDataTimer" repeat="true" duration="20" />
+        <Animation id="hideAnimation" duration="0.4" easeFunction="linear">
+            <FloatFieldInterpolator key="[ 0.0, 0.5, 1.0 ]" keyValue="[ 1.0, 0.5, 0.0 ]" fieldToInterp="shannelTitle.opacity" />
+            <FloatFieldInterpolator key="[ 0.0, 0.5, 1.0 ]" keyValue="[ 1.0, 0.5, 0.0 ]" fieldToInterp="channelName.opacity" />
+            <FloatFieldInterpolator key="[ 0.0, 0.5, 1.0 ]" keyValue="[ 1.0, 0.5, 0.0 ]" fieldToInterp="maskForTitle.opacity" />
+            <FloatFieldInterpolator key="[ 0.0, 0.5, 1.0 ]" keyValue="[ 1.0, 0.5, 0.0 ]" fieldToInterp="sheduleLive.opacity" />
+        </Animation>
+
+        <Animation id="showAnimation" duration="0.4" easeFunction="linear">
+            <FloatFieldInterpolator key="[ 0.0, 0.5, 1.0 ]" keyValue="[ 0.0, 0.5, 1.0 ]" fieldToInterp="maskForTitle.opacity" />
+            <FloatFieldInterpolator key="[ 0.0, 0.5, 1.0 ]" keyValue="[ 0.0, 0.5, 1.0 ]" fieldToInterp="shannelTitle.opacity" />
+            <FloatFieldInterpolator key="[ 0.0, 0.5, 1.0 ]" keyValue="[ 0.0, 0.5, 1.0 ]" fieldToInterp="channelName.opacity" />
+            <FloatFieldInterpolator key="[ 0.0, 0.5, 1.0 ]" keyValue="[ 0.0, 0.5, 1.0 ]" fieldToInterp="sheduleLive.opacity" />
+        </Animation>
+    </children>
+</component>    	
+       

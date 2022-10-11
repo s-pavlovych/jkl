@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
+
+<component name="FeatureScreen" extends="BaseScreen">
+  <!-- importing main handler -->
+  <script type="text/brightscript" uri="pkg:/components/Screens/FeatureScreen/FeatureScreen.brs" />
+
+  <interface>
+    <field id="content" type="roarray" alwaysNotify="true" onChange="changeContent" />
+    <field id="isHiddenNavBar" type="bool" />
+    <field id="passFocusToNavi" alias="serialsDetailScreen.passFocusToNavi" type="boolean" alwaysNotify="true" onChange="focusToNav" />
+    <field id="passFocusToNavEpisodes" alias="showDetailEpisodes.passFocusToNav" type="boolean" alwaysNotify="true" onChange="onPassToNavChange" />
+    <field id="passFocusToNavigation" type="boolean" alias="episodeDetailScreen.passFocusToNavigation" alwaysNotify="true" onChange="onPassToNavChange" />
+    <field id="hideEmbbededScreen" type="boolean" alwaysNotify="true" onChange="hideScreenView" />
+    <field id="hideNavbarFeature" alias="episodeDetailScreen.hideNavbarFeature" type="boolean" alwaysNotify="true" onChange="onHideNavbar" />
+    <field id="hideEpisodeView" type="boolean" alias="showDetailEpisodes.hideEpisodeView" />
+    <field id="id" type="integer" alias="alias" />
+    <field id="focusToImg" type="boolean" alwaysNotify="true" onChange="onWhichScreenPass" />
+    <field id="changeAllowFocus" type="boolean" alwaysNotify="true" alias="showDetailEpisodes.changeAllowFocus" onChange="onChangeAllow" />
+    <field id="allowFocusToEpisode" type="boolean" alwaysNotify="true" alias="serialsDetailScreen.allowFocusToEpisode" />
+    <function name="pop" />
+    <function name="showScreen" />
+  </interface>
+
+  <children>
+    <Animation id="upListAnimation" duration="0.5" repeat="false" easeFunction="inOutQuad">
+      <Vector2DFieldInterpolator id="translationInterp" key="[0.0,1.0]" keyValue="[[80, 170 ],[80, 960]]" fieldToInterp="episodesList.translation" />
+      <Vector2DFieldInterpolator id="translationInterp2" key="[0.0,1.0]" keyValue="[[ 0, -800 ],[0, 0]]" fieldToInterp="topGroup.translation" />
+    </Animation>
+    <Animation id="expandListAnimation" duration="0.5" repeat="false" easeFunction="inOutQuad">
+      <Vector2DFieldInterpolator id="translationInterp" key="[0.0,1.0]" keyValue="[[80, 960 ],[80, 170]]" fieldToInterp="episodesList.translation" />
+      <Vector2DFieldInterpolator id="translationInterp2" key="[0.0,1.0]" keyValue="[[ 0, 0 ],[0, -800]]" fieldToInterp="topGroup.translation" />
+    </Animation>
+    <Group id="topGroup">
+      <Rectangle id="containerView" translation="[ 0, 140 ]" color="#FFFFFF" opacity="0.8" height="790" width="1920" />
+      <RowList id="featuredList" translation="[ 0, 180 ]" itemComponentName="ElementsSeries" focusFootprintBlendColor="#0646A5" focusXOffset="[ 80, 0 ]" numRows="1" itemSize="[1920, 630 ]" rowItemSize="[ [1174, 630] ]" rowItemSpacing="[[30,20]]" showRowLabel="[ false ]" drawFocusFeedback="true" vertFocusAnimationStyle="fixedFocusWrap" rowFocusAnimationStyle="fixedFocusWrap" />
+      <Label id="titleForFeaturedList" translation="[ 90, 820 ]" height="56" width="1144" color="#2C2E35" />
+      <Label id="descriptionFeatured" translation="[ 90, 880 ]" height="46" width="1144" color="#2C2E35" />
+    </Group>
+    <RowList id="episodesList" itemComponentName="CustomItemComponent" translation="[80, 960 ]" focusFootprintBlendColor="#0646A5" rowLabelColor="#000000" rowLabelOffset="[[10, 15]]" numRows="3" rowHeights="400" itemSpacing="[50, 100]" itemSize="[ 1920, 400 ]" rowItemSize="[ [568, 400] ]" rowItemSpacing="[[48, 150]]" drawFocusFeedback="true" showRowLabel="[ true ]" rowFocusAnimationStyle="fixedFocusWrap" vertFocusAnimationStyle="fixedFocus" />
+    <ShowDetailEpisodes id="showDetailEpisodes" visible="false" backgroundColor="#e9e9e9" />
+    <EpisodeDetailScreen id="episodeDetailScreen" visible="false" backgroundColor="#e9e9e9" />
+    <SerialsDetailScreen id="serialsDetailScreen" visible="false" backgroundColor="#e9e9e9" />
+    <NavigationGroup id="navigationStack" />
+    <LoadingIndicator id="loadingProgress" />
+  </children>
+</component>

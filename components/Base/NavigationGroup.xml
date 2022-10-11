@@ -1,0 +1,12 @@
+<component name="NavigationGroup" extends="Group">
+    <script type="text/brightscript" uri="pkg:/components/Base/NavigationGroup.brs"/>
+    <interface>
+        <function name="showScreen"/>
+        <function name="pop"/>
+        <function name="popToRoot"/>
+        <function name="screensCount"/>
+        <function name="topScreen"/>
+        <function name="screens"/>
+        <function name="back"/>
+    </interface>
+</component>

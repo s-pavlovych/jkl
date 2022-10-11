@@ -1,0 +1,12 @@
+<component name="NetworkManager" extends="Task">
+    <script type="text/brightscript" uri="pkg:/components/Classes/NetworkManager/NetworkManager.brs"/>
+    <script type="text/brightscript" uri="pkg:/components/Classes/Utils/util.brs"/>
+
+    <interface>
+        <field id="baseUrl" type="string"/>
+        <field id="defaultChannel" type="node"/>
+        <field id="fullURL" type="string" />
+        <field id="request" alwaysNotify = "true" type="node"/>
+        <field id="response" alwaysNotify = "true" type="node"/>     
+    </interface>
+</component>

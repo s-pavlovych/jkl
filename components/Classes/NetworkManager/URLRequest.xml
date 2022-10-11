@@ -1,0 +1,16 @@
+<component name="URLRequest" extends="node">
+    <script type="text/brightscript" uri="pkg:/components/Classes/NetworkManager/URLRequest.brs"/>
+    <script type="text/brightscript" uri="pkg:/components/Classes/Utils/config.brs"/>
+    <script type="text/brightscript" uri="pkg:/components/Classes/Utils/util.brs"/>
+
+    <interface>
+        <field id="path" type="string"/>
+        <field id="pathArgument" type="string"/>
+        <field id="method" type="string" value="GET"/>
+        <field id="body" type="assocarray"/>
+        <field id="querryParams" type="assocarray"/>        
+        <function name="getUrl"/>
+        <function name="getBody"/>
+        <function name="getHeaders"/>        
+    </interface>
+</component>

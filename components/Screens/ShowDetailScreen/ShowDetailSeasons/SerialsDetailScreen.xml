@@ -1,0 +1,54 @@
+<component name="SerialsDetailScreen" extends="BaseScreen">
+  <script type="text/brightscript" uri="pkg:/components/Screens/ShowDetailScreen/ShowDetailSeasons/SerialsDetailScreen.brs" />
+
+  <interface>
+    <field id="hide_showNavigation" type="boolean" alias="detatilsEpisode.hide_showNavigation" alwaysNotify="true" onChange="onHide_showNavigation" />
+    <field id="focusPassed" type="boolean" alwaysNotify="true" />
+    <field id="passFocusToNav" type="boolean" alwaysNotify="true" alias="detatilsEpisode.passFocusToNav" />
+    <field id="passFocusToNavi" type="boolean" alwaysNotify="true" alias="detatilsEpisode.passFocusToNavi" />
+    <field id="sentFocusToEpisode" type="boolean" alwaysNotify="true" alias="detatilsEpisode.sentFocusToEpisode" />
+    <field id="allowFocusToEpisode" type="boolean" alwaysNotify="true" />
+    <field id="focusToImg" type="boolean" alwaysNotify="true" onChange="onFocusToImg" />
+    <field id="preview" type="assocarray" onChange="onPreviewChange" />
+    <field id="hideNavbarSerials" type="boolean" alias="detatilsEpisode.hideNavbarSerials" alwaysNotify="true" onChange="onHideNavbar" />
+    <field id="content" type="array" alwaysNotify="true" onChange="showContent" />
+    <field id="hideEmbbededScreen" type="boolean" alwaysNotify="true" onChange="onContentHide" />
+    <field id="backAfteLoad" type="bool" />
+    <field id="showLoaderIndicator" type="node" alwaysNotify="true" />
+    <field id="sendNodeReference" type="node" />
+    <field id="showOnce" type="boolean" />
+  </interface>
+
+  <children>
+    <EpisodeDetailScreen id="detatilsEpisode" backgroundColor="#EDEDED" visible="false" />
+    <Group id="SerialGroup" visible="true">
+      <Rectangle id="container" translation="[0, 140]">
+        <Poster id="backgroundPoster" translation="[552, 0]" width="1368" height="768" loadDisplayMode="scaleToFill" />
+        <Poster id="backgroundGradient" uri="pkg:/images/$$RES$$/rectograd.png" translation="[0, 0]" width="960" height="780" loadDisplayMode="scaleToFill" />
+        <LayoutGroup id="textContainer" translation="[80, 210]" itemSpacings="[30.0]">
+          <Label id="titleSerial" color="#2C2E35" width="424" maxLines="3" wrap="true" />
+          <Label id="descriptionSerial" color="#000000" width="760" maxLines="4" wrap="true" lineSpacing="3" />
+        </LayoutGroup>
+      </Rectangle>
+      <RowList id="seasonList" itemComponentName="CustomItemComponent" translation="[80, 828]" numRows="1" drawFocusFeedback="true" rowLabelOffset="[[0, 20]]" visible="true" />
+      <LoadingIndicator id="loadingProgress" visible="false" imageUri="pkg:/images/loader.png" backgroundColor="0x000000" imageWidth="100" fadeInterval="0.2" text="Loading..." />
+      <Rectangle id="alert" visible="false" color="0xffffff">
+        <Label id="titleAlert" color="#000000" horizAlign="center" translation="[0, 100]" text="Something goes wrong! Please, try again later." />
+        <LabelList id="buttonsForAlert" textHorizAlign="center" focusFootprintBlendColor="0x330099" color="0x330099" focusedColor="0xFFFFFF" focusedFont="font:MediumSystemFont" vertFocusAnimationStyle="floatingFocus" itemSize="[300, 70]" itemSpacing="[0,20]">
+          <ContentNode id="moviemenucontent" role="content">
+            <ContentNode title="OK" />
+          </ContentNode>
+        </LabelList>
+      </Rectangle>
+    </Group>
+    <Animation id="upListAnimation" duration="0.5" repeat="false" easeFunction="inOutQuad">
+      <Vector2DFieldInterpolator id="translationInterp" key="[0.0,1.0]" keyValue="[[0, 140],[0, -200]]" fieldToInterp="container.translation" />
+      <Vector2DFieldInterpolator id="translationInterp3" key="[0.0,1.0]" keyValue="[[80, 828], [80, 588]]" fieldToInterp="seasonList.translation" />
+    </Animation>
+    <Animation id="downListAnimation" duration="0.5" repeat="false" easeFunction="inOutQuad">
+      <Vector2DFieldInterpolator id="translationInterp" key="[0.0,1.0]" keyValue="[[0, -200],[0, 140]]" fieldToInterp="container.translation" />
+      <Vector2DFieldInterpolator id="translationInterp3" key="[0.0,1.0]" keyValue="[[80, 588],[80, 828]]" fieldToInterp="seasonList.translation" />
+    </Animation>
+    <Timer id="timer" repeat="false" duration="0.3" />
+  </children>
+</component>

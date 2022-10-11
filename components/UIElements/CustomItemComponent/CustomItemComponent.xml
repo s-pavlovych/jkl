@@ -1,0 +1,16 @@
+<component name = "CustomItemComponent" extends = "Group" >
+    <script type = "text/brightscript" uri="pkg:/components/UIElements/CustomItemComponent/CustomItemComponent.brs" />
+    <script type = "text/brightscript" uri="pkg:/components/Classes/Utils/config.brs"/>
+  
+    <interface>
+        <field id = "itemContent" type = "node" onChange = "showContent"/>
+        <field id = "focusPercent" type="float" onChange = "showfocus" /> 
+        <field id = "rowListHasFocus" type = "bool" onChange="rowListChangeFocus"/>
+    </interface>
+   
+    <children>
+        <Poster id = "imageForCell"  translation = "[10, 10]" width="548" height="308" loadWidth="548" loadDisplayMode = "scaleToZoom"/>
+        <Label id = "nameLabel" translation = "[10, 320]" width = "548" wrap = "true" maxLines = "2" lineSpacing = "1" color = "#000000"/>
+        <Label  id = "descriptionLabel" translation = "[10, 355]"  maxLines = "1" width = "540" color = "#65666B"/>
+    </children>
+</component>

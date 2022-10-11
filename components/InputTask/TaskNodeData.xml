@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="TaskNodeData" extends="Task">
+
+<interface>
+       <field id="section" type="node" />
+       <field id="listNode" type="node" />
+       <field id="seasons" type="roArray"/>
+       <field id="titles" type="roArray"/>
+       <field id="content" type="node"/>
+       <field id="preview" type="node" />
+</interface>
+ 
+  <script type="text/brightscript" uri="TaskNodeData.brs" />
+   <script type="text/brightscript" uri="pkg:/components/Classes/Utils/util.brs"/>
+</component>

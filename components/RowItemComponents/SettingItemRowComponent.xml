@@ -1,0 +1,30 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
+ 
+<component name = "MarkupListItem" extends = "Group" >
+ 
+  <interface> 
+    <field id = "itemContent" type = "node" onChange = "showcontent" />
+     <field id = "rowFocusPercent" type = "float" alwaysNotify="true"  onChange = "showfocus"/> 
+    <field id="itemHasFocus" type="bool" onChange="onItemFocused"/>  
+    <field id="itemFocused" type="integer" onChange = "setIndexRow"/>
+    <field id="focusBitmapUri" type= "uri" onChange = "changeFocus"/>
+    <field id="itemUnfocused" type="integer" onChange = "changeUnfocus" />
+    <field id="focusFootprintBitmapUri" type="uri" onChange = "unFocus"/>
+    <field id="rowListHasFocus" type="bool" alwaysNotify="true" onChange = "rowListChangeFocus"/>
+    <field id="rowIndex" type="integer" onChange="indexPath" />
+  </interface>
+ 
+  <script type = "text/brightscript" uri="pkg:/components/RowItemComponents/SettingItemRowComponent.brs" />
+  <script type="text/brightscript" uri="pkg:/components/Classes/Utils/config.brs"/>
+  <script type="text/brightscript" uri="pkg:/components/Classes/Utils/util.brs"/>
+
+  <children>
+    <Poster id="countryImage" translation="[0, 3]" width="55" height="38" uri="pkg:/images/countryImage.png" >
+        <Label id="countryName" translation="[0, 7]" width="55" height="25" horizAlign = "center" vertAlign = "center" />
+    </Poster>
+    <Label id="versionLabel" translation="[440, 55]" height="25" horizAlign = "center" vertAlign = "center" visible="true"/>
+    <Label id="channelName" translation="[80, 0]" height="30" width ="900" color="#2C2E35" />
+  </children>
+</component>

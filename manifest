@@ -1,0 +1,23 @@
+title=Hope Channel
+major_version=5
+minor_version=0
+build_version=45
+
+mm_icon_focus_hd=pkg:/images/icon_focus_hd.png
+mm_icon_focus_sd=pkg:/images/icon_focus_sd.png
+splash_screen_fhd=pkg:/images/FHD/splash.png
+splash_screen_hd=pkg:/images/HD/splash.png
+splash_screen_sd=pkg:/images/splash_sd.png
+
+splash_color=#000000
+clientToken=bULqcES3BJ6K1K1UF8phMTmoR0eEajqx
+; deliveryChannelId=5aab9a43e9da8c653f2eae50
+
+ui_resolutions=fhd
+uri_resolution_autosub=$$RES$$,SD,HD,FHD
+
+confirm_partner_button=1
+rsg_version=1.2
+supports_input_launch=1
+sg_component_libs_required=Roku_Analytics
+bs_const=LOG_REQUEST_ENABLED=true

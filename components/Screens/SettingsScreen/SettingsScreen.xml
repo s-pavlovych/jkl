@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
+<component name="SettingsScreen" extends="BaseScreen" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd" initialFocus = "ButtonGroup">
+	<!-- importing main handler -->
+	<script type="text/brightscript" uri="pkg:/components/Screens/SettingsScreen/SettingsScreen.brs" />
+	<interface>
+		<field id="content" type="array" alwaysNotify="true" onChange = "changeContent" />
+		<field id="networkManager" type="node" />
+		<field id="resetScreens" type="boolean" alwaysNotify="true" />
+	</interface>
+	<children>
+		<MaskGroup id = "maskGroup" translation="[0, 150]" maskuri = "pkg:/images/$$RES$$/gradient.png">
+			<RowList  id = "channelList" itemComponentName = "MarkupListItem" rowItemSize = "[ [850, 90] ]" itemSize="[850, 90]" itemSpacing="[0, 45]" translation = "[ 320, 0 ]" drawFocusFeedback="false" numRows = "7" focusRow="1" vertFocusAnimationStyle="fixedFocusWrap" rowFocusAnimationStyle="fixedFocusWrap"/>
+		</MaskGroup>
+		<Group id="buttonGroup" translation="[1200, 280]" visible="false">
+			<Poster id="liveLogo" translation="[0,0]" width="27" height="24" uri="pkg:/images/Vector-6.png"/>
+			<Poster id="featuredLogo" translation="[35,0]" width="27" height="24" uri="pkg:/images/Vector-4.png"/>
+			<Poster id="showsLogo" translation="[70,0]" width="27" height="24" uri="pkg:/images/FEATURE.png"/>
+		</Group>
+		<Poster id="backButton" translation="[80, 168]" width="100" height="100" uri="pkg:/images/button.png">
+			<Poster id="icBackButton" translation="[30, 25]" width="30" height="50" uri="pkg:/images/Icon.png" />
+        </Poster>
+		<Rectangle id = "backgroundHidden" visible = "false" opacity = "0.3" height = "1800" width = "1920" />
+		<Rectangle id = "alert" visible = "false" translation = "[450, 200]" height = "700" width = "1000" color = "0xFFFFFF">
+			<Label id = "titleAlert"  font = "font:LargeBoldSystemFont" color = "0x282828" translation = "[300, 100]" text = "Change Your Channel"/>
+			<Label id = "descriptionsAlert" horizAlign = "center" vertAlign = "center" width="800" color = "0x282828" wrap = "true" maxLines = "0" height = "0"  translation = "[100, 200]" />
+			<LabelList id = "buttonsForAlert" textHorizAlign = "center" focusBitmapBlendColor = "#110589" focusFootprintBlendColor = "0xFFFFFF"  translation = "[350, 400]" color="0x330099" focusedColor="0xFFFFFF" focusedFont="font:MediumSystemFont" vertFocusAnimationStyle= "floatingFocus" itemSize = "[300, 70]" itemSpacing="[0,20]">
+				<ContentNode id = "moviemenucontent" role = "content">
+					<ContentNode title = "OK" />
+					<ContentNode title = "Cancel" />
+                </ContentNode>
+			</LabelList>
+		</Rectangle>
+		<Label id="versionLabel" translation="[500, 1050]" height="25" horizAlign = "center" vertAlign = "center" />
+	</children>
+</component>

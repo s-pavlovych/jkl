@@ -1,0 +1,26 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+<component name = "SheduleComponent" extends = "Group" >
+  
+  <script type = "text/brightscript" uri="pkg:/components/UIElements/SheduleComponent/SheduleComponent.brs"/>
+  <script type = "text/brightscript" uri="pkg:/components/Classes/Utils/config.brs"/>
+ <interface> 
+    <field id = "itemContent" type = "node" onChange = "showcontent"/>
+    <field id = "focusPercent" type = "float" onChange = "showfocus"/> 
+    <field id = "rowListHasFocus" type = "bool" onChange="rowListChangeFocus"/>
+    <field id = "itemHasFocus" type = "bool"/>
+    <field id = "rowFocusPercent" type = "float" onChange = "showrowfocus"/>
+    <field id = "index" type = "integer"/>
+    <field id = "rowIndex" type = "integer" onChange = "indexPath"/>
+  </interface>
+
+  <children>
+    <Poster id="stateImage" translation="[10, 130]" width="65" height= "30" opacity = "1.0" uri="pkg:/images/Subtract.png" visible="true">
+      <Label id="stateName" translation="[0, 0]" height= "30" width="65" horizAlign = "center" vertAlign = "center"/>
+    </Poster>
+    <Label id="time" translation="[10, 70]" color="#FFFFFF" height = "50" width = "856"/>
+    <Label id="nameStreem" translation="[130, 130]" color="#FFFFFF" width = "650" height = "50"/>
+    <Label id="nameShow" translation="[130, 70]" color="#FFFFFF" width = "650" height = "50"/>
+    <Rectangle id="progress" translation="[0, 180]" color="#FFFFFF" width = "856" height="5" opacity="0.2"/>
+    <Rectangle id="currentProgress" translation="[0, 180]" color="#FFD036" width = "0" height="5" opacity="1"/>
+  </children>
+</component>

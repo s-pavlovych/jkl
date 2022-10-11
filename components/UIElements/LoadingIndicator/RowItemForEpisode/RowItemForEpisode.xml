@@ -1,0 +1,18 @@
+<component name="RowItemForEpisode" extends="Group">
+    <script type="text/brightscript" uri="pkg:/components/UIElements/LoadingIndicator/RowItemForEpisode/RowItemForEpisode.brs" />
+
+    <interface>
+        <field id = "itemContent" type = "node" onChange = "showContent"/>   
+        <field id = "focusPercent" type="float" onChange = "showfocus" /> 
+        <field id = "rowListHasFocus" type = "bool" onChange="rowListChangeFocus"/>
+        <field id="id" type="integer"/>
+    </interface>
+
+    <children> 
+        <Poster id = "imageEpisodes"  translation = "[0, 0]" width="1000" height="554" loadWidth="1000" loadDisplayMode = "scaleToFit">
+            <Poster id = "backgroundPlay"  translation = "[ 415, 207 ]" width="120" height="120" uri = "pkg:/images/Ellipse.png">
+                <Poster id = "imagePlay"   width="50" height="60" uri = "pkg:/images/Play.png"/>
+             </Poster>
+        </Poster> 
+    </children>
+</component>

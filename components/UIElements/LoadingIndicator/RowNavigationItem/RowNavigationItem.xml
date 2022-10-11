@@ -1,0 +1,18 @@
+<component name="RowNavigationItem" extends="Group">
+    <script type="text/brightscript" uri="RowNavigationItem.brs" />
+
+    <interface>
+        <field id = "itemContent" type = "node" onChange = "addContent"/>
+        <field id = "itemHasFocus" type = "bool" alwaysNotify="true" onChange = "showfocus"/> 
+        <field id = "height" type="bool" alwaysNotify="true"  onChange = "changeHeightFocuse"/>
+    </interface>
+   
+    <children>
+         <Group id = "itemsRowComponent">
+            <Poster id = "focusItem" translation = "[-25, 0]" height = "140" width = "246" uri = "pkg:/images/menuItemBg.png" visible = "true"/>
+            <Label id = "nameItem" horizAlign = "center" height = "48" vertAlign = "center" translation = "[45, 48]" color = "#000000" font = "font:SmallBoldSystemFont" opacity="0.7"/>
+            <Label id = "failItem" horizAlign = "center" height = "48" vertAlign = "center" translation = "[45, 48]" opacity="0.7" visible = "false"/>
+            <Poster id = "iconForShow" translation = "[0, 55]" height = "30" width = "30" loadDisplayMode = "scaleToFit"/>
+         </Group>
+    </children>
+</component>

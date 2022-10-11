@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
+
+<component name="MainScene" extends="Scene" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+	<!-- importing main handler -->
+	<script type="text/brightscript" uri="pkg:/components/Screens/MainScene/MainScene.brs" />
+	<script type="text/brightscript" uri="pkg:/components/Classes/AnalyticsManager/Analytics.brs" />
+	<script type="text/brightscript" uri="pkg:/components/Classes/Utils/config.brs" />
+	<script type="text/brightscript" uri="pkg:/components/Classes/Utils/util.brs" />
+
+	<interface>
+		<field id="exitApp" type="boolean" value="false" />
+		<field id="hideDecendantScreen" type="boolean" alias="settingsScreen.resetScreens" alwaysNotify="true" onChange="onDesendantScreenHide" />
+		<field id="passFocusToNav" type="boolean" alias="showsScreen.passFocusToNav" alwaysNotify="true" onChange="onPassFocusToNav" />
+		<field id="passFocusToNavi" type="boolean" alias="featureScreen.passFocusToNavi" alwaysNotify="true" onChange="onPassFocusToNavi" />
+		<field id="itemFocused" type="string" alias="mainNavigationItem.itemFocused" alwaysNotify="true" onChange="changeScreen" />
+		<field id="itemSelected" type="string" alias="mainNavigationItem.itemSelected" alwaysNotify="true" onChange="hidePreviousScreen" />
+		<field id="networkManager" type="node" />
+		<field id="hideEmbbededScreen" alias="showsScreen.hideEmbbededScreen" type="boolean" alwaysNotify="true" />
+		<field id="hideEmbbededScreenFeat" alias="featureScreen.hideEmbbededScreen" type="boolean" alwaysNotify="true" />
+		<field id="writeCloudLog" type="node" />
+		<field id="state" type="string" alias="liveScreen.statePlayer" onChange="changeStatePlayer" />
+		<field id="showLable" type="boolean" />
+		<field id="stopVideo" alias="mainNavigationItem.stopVideo" type="boolean" onChange="onStopVideo" />
+		<function name="showLoadingIndicator" />
+		<function name="showLaunchScreen" />
+		<function name="hiddenNavBar" />
+
+		<function name="showError" />
+	</interface>
+
+	<children>
+		<ShowScreen id="showsScreen" backgroundColor="#e9e9e9" />
+		<LiveScreen id="liveScreen" backgroundColor="0x154294" visible="false" />
+		<SettingsScreen id="settingsScreen" backgroundColor="#e9e9e9" visible="false" />
+		<FeatureScreen id="featureScreen" backgroundColor="#e9e9e9" />
+		<VideoPlayer id="videoPlayer" backgroundColor="0x154294" />
+		<LoadingIndicator id="loadingProgress" visible="false" imageUri="pkg:/images/loader.png" backgroundColor="0x000000" imageWidth="100" fadeInterval="0.2" text="Loading..." />
+		<MainNavigationItem id="mainNavigationItem" visible="false" />
+		<Timer id="timerForHideView" repeat="false" control="start" duration="4.7" />
+		<Timer id="timerForFocus" repeat="false" duration="0.5" />
+		<Rectangle id="alert" visible="false" color="0xffffff">
+			<Label id="titleAlert" color="#000000" horizAlign="center" translation="[0, 100]" text="Exit Hope Channel?" />
+			<Label id="descriptionsAlert" horizAlign="center" vertAlign="center" width="800" color="#000000" wrap="true" maxLines="0" height="0" translation="[0, 200]" />
+			<LabelList id="buttonsForAlert" textHorizAlign="center" focusFootprintBlendColor="0x330099" color="0x330099" focusedColor="0xFFFFFF" focusedFont="font:MediumSystemFont" vertFocusAnimationStyle="floatingFocus" itemSize="[300, 70]" itemSpacing="[0,20]">
+				<ContentNode id="moviemenucontent" role="content">
+					<ContentNode title="CANCEL" />
+					<ContentNode title="EXIT" />
+				</ContentNode>
+			</LabelList>
+		</Rectangle>
+
+
+	</children>
+</component>

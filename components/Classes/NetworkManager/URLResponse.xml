@@ -1,0 +1,12 @@
+<component name="URLResponse" extends="node">
+    <script type="text/brightscript" uri="pkg:/components/Classes/NetworkManager/URLResponse.brs"/>
+    <script type="text/brightscript" uri="pkg:/components/Classes/Utils/util.brs"/>
+
+    <interface>
+        <field id="arrayData" type="array"/>
+        <field id="data" type="assocarray"/>
+        <field id="error" type="assocarray"/>
+        <field id="isSuccess" type="boolean" value="true"/>          
+        <function name="initWithResponse"/>
+    </interface>
+</component>

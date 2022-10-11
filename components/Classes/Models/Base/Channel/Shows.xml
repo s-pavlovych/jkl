@@ -1,0 +1,20 @@
+<component name="Shows" extends="BaseModel">
+    <script type="text/brightscript" uri="pkg:/components/Classes/Models/Base/Channel/Shows.brs"/>
+
+    <interface>
+        <field id="id" type="string" />
+        <field id="title" type="string"/>        
+        <field id="abstract" type="string"/>        
+        <field id="createdAt" type="string"/>                
+        <field id="publishedAt" type="string"/>     
+        <field id="updateAt" type="string"/> 
+        <field id="language" type="string"/>
+
+        <field id="episodeCount" type="integer" /> 
+
+        <field id="images" type="assocarray"/>
+
+        <function name="mapWith"/>        
+    </interface>
+</component>
+

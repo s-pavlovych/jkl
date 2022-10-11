@@ -1,0 +1,11 @@
+<component name="Carousel" extends="BaseModel">
+    <script type="text/brightscript" uri="pkg:/components/Classes/Models/Base/Channel/Carousel.brs" />
+
+    <interface>
+
+        <field id="title" type="string" />
+        <field id="image" type="assocarray" />
+
+        <function name="mapWith" />
+    </interface>
+</component>

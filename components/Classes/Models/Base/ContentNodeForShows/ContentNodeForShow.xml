@@ -1,0 +1,12 @@
+<component name="ContentNodeShows" extends="ContentNode">
+
+	<interface>
+		<field id="colors" type="assocarray" />
+		<field id="backgroundImage" type="assocarray" />
+		<field id="titleColor" type="string" />
+		<field id="objectID" type="string" />
+		<field id="shortDescriptions" type="string" />
+		<field id="textColor" type="string" />
+	</interface>
+
+</component>

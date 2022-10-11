@@ -1,0 +1,25 @@
+<component name="BaseScreen" extends="Group">
+  <script type="text/brightscript" uri="pkg:/components/Base/BaseScreen.brs" />
+  <script type="text/brightscript" uri="pkg:/components/Classes/Utils/config.brs" />
+  <script type="text/brightscript" uri="pkg:/components/Classes/Utils/util.brs" />
+
+  <interface>
+    <field id="screenId" type="string" onChange="setupScreen" />
+
+    <field id="showMenu" type="bool" alwaysNotify="true" />
+    <field id="backTapped" type="bool" alwaysNotify="true" />
+    <field id="backgroundColor" type="bool" alwaysNotify="true" alias="background.color" />
+
+    <field id="focusKey" type="integer" value="0" onChange="updateFocus" alwaysNotify="true" />
+
+    <function name="pop" />
+    <function name="showScreen" />
+    <function name="getScreensCount" />
+
+  </interface>
+
+  <children>
+    <Rectangle id="background" width="1920" height="1080" />
+    <NavigationGroup id="navigationStack" />
+  </children>
+</component>

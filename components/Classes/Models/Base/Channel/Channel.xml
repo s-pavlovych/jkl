@@ -1,0 +1,18 @@
+<component name="Channel" extends="BaseModel">
+    <script type="text/brightscript" uri="pkg:/components/Classes/Models/Base/Channel/Channel.brs"/>
+
+    <interface>
+
+        <field id="title" type="string"/>   
+        <field id="id" type="string" />  
+        <field id="description" type="string" />   
+        <field id="shortDescription" type="string"/>        
+        <field id="longDescription" type="string"/>    
+        <field id="mainLang" type="integer" />            
+        <field id="logo" type="assocarray"/>        
+        <field id="logoAlternative" type="assocarray"/>        
+        <field id="streams" type="array"/>        
+        <function name="mapWith"/>        
+        <function name="getVideoContent"/>                
+    </interface>
+</component>

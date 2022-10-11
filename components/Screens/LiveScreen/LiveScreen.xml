@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="LiveScreen" extends="BaseScreen" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+  <script type="text/brightscript" uri="pkg:/components/Screens/LiveScreen/LiveScreen.brs"/>
+  
+  <interface>
+    <field id = "selectedContent" type = "node" alwaysNotify = "true" onChange = "showContent"/>
+    <field id = "statePlayer" type = "string" alwaysNotify = "true" alias = "videoPlayer.statePlayer" onChange = "changeStatePlayer"/>
+    <field id = "isChangePlayerStatus" type = "string"  onChange = "changePlayerStatus"/>
+    <field id = "showLabelInPlayer" type = "bool" alwaysNotify = "true" onChange = "showLabel"/>
+    <field id = "stopPlayer" type="string" alias="videoPlayer.stopLive"  onChange = "stopPlayer"/>
+  </interface>
+
+  <children>
+    <Group id = "liveGrop">
+      <VideoPlayer id = "videoPlayer" backgroundColor = "0x154294"/>
+      <!-- 
+      <Rectangle id = "panelView" translation = "[0, 920]" width = "1920" height = "162" color = "#0528b3" opacity = "0.8"/>
+      <RowList  id = "liveRowList" translation = "[205, 925]" itemComponentName = "LiveRowItem" numRows = "1" focusXOffset = "[500, 0]" itemSize = "[1500, 100]" rowItemSize = "[[ 580, 100 ]]" itemSpacing = "[ 10, 10 ]" focusBitmapUri = "pkg:/images/white.png" drawFocusFeedback = "true" drawFocusFeedbackOnTop = "false" rowFocusAnimationStyle = "fixedFocusWrap"/>
+      <Poster id = "leftArrow" translation = "[155, 945]" width = "50" height = "50" uri = "pkg:/images/icons8-назад-50.png"/>
+      <Poster id = "rightArrow" translation = "[1705, 945]" width = "50" height = "50" uri = "pkg:/images/icons8-вперед-50.png"/>
+      <Timer id = "timer" repeat = "false" duration = "5"/> -->
+    </Group> 
+  </children>
+</component>

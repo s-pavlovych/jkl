@@ -1,0 +1,31 @@
+<component name="MainNavigationItem" extends="Group">
+    <script type="text/brightscript" uri="pkg:/components/UIElements/LoadingIndicator/MainNavigationItem/MainNavigationItem.brs"/>
+    <script type="text/brightscript" uri="pkg:/components/Classes/Utils/util.brs"/>
+    <script type="text/brightscript" uri="pkg:/components/Classes/Utils/config.brs"/>
+
+    <interface>
+        <field id = "content" type = "array" onChange = "showContent"/>
+        <field id = "logo" type = "assocarray"/>
+        <field id = "isHideMenu" type = "bool" value="false" alwaysNotify="true" onChange = "hideMenu"/>
+        <field id = "itemFocused" type="string" alwaysNotify="true" />
+        <field id = "itemSelected" type="string" alwaysNotify="true" />
+        <field id = "unfocused" type = "bool" value="false" onChange = "hideFocus"/>
+        <field id = "perventBlink" type = "bool"/>
+        <field id = "stopVideo" type = "bool"/>
+        <field id = "showLable" type = "bool"/>
+    </interface>
+
+    <children>
+        <Group id = "navigationGroup">
+    	    <Rectangle id = "navigationBar" color = "0xffffff" width = "1920" height = "140" translation = "[0.0,0.0]"/>
+    	    <Poster id = "logoMenu" translation = "[0, 21]" width = "0" height = "100" loadDisplayMode = "scaleToFit"/>
+   		    <LayoutGroup  id="itemRow" layoutDirection="horiz" horizAlignment="left" itemSpacings="[20]" visible = "true"/>
+			<Animation id = "animationHideNavigatioPanel" duration = "0.4" repeat = "false" easeFunction = "linear">
+      			<Vector2DFieldInterpolator key = "[0.1, 0.6]" keyValue = "[[0.0, 0.0], [0.0, -151.0]]"  fieldToInterp = "navigationGroup.translation"/>
+			</Animation>
+			<Animation id = "animationShowNavigatioPanel" duration = "0.3" repeat = "false" easeFunction = "linear">
+      			<Vector2DFieldInterpolator key = "[0.1, 0.6]" keyValue = "[[0.0, -149.0], [0.0, 0.0]]"  fieldToInterp = "navigationGroup.translation"/>
+			</Animation>
+        </Group>
+    </children> 
+</component> 

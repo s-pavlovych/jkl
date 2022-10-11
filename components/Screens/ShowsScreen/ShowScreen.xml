@@ -1,0 +1,20 @@
+<component name="ShowScreen" extends="BaseScreen" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+  <script type="text/brightscript" uri="pkg:/components/Screens/ShowsScreen/ShowScreen.brs"/>
+  
+  <interface>
+    <field id = "passFocusToNav" alias="serialsDetailScreen.passFocusToNav" type="boolean" alwaysNotify="true" onChange="focusToNav" />
+    <field id = "passFocusToNavEpisodes" alias="showDetailEpisodes.passFocusToNavi" type="boolean" alwaysNotify="true" onChange="onPassToNavChange" />
+    <field id = "changeAllowFocus" type="boolean" alias="showDetailEpisodes.changeAllowFocus" onChange="onChangeAllow" />
+    <field id = "allowFocusToEpisode" type="boolean" alwaysNotify="true" alias="serialsDetailScreen.allowFocusToEpisode" />
+    <field id = "focusToImg" type="boolean" alwaysNotify="true" onChange="onWhichScreenPass" />
+    <field id = "hideEmbbededScreen" alias="serialsDetailScreen.hideEmbbededScreen" type="boolean" alwaysNotify="true" onChange="hideScreenView" />
+    <field id = "hideEpisodeView" type="boolean" alias="showDetailEpisodes.hideEpisodeView" />
+  </interface>
+
+  <children>
+    <ShowDetailEpisodes id = "showDetailEpisodes" visible = "false" backgroundColor = "#e9e9e9"/>
+    <EpisodeDetailScreen id = "episodeDetailScreen" backgroundColor = "0xffffff" visible = "false"/> 
+    <SerialsDetailScreen id = "serialsDetailScreen" visible = "false" backgroundColor = "#e9e9e9"/>
+    <RowList id = "showsList" itemComponentName = "CustomItemComponent" drawFocusFeedback = "true" translation = "[50, 210]"/>
+  </children>
+</component>

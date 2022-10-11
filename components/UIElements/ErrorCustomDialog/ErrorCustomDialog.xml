@@ -1,0 +1,24 @@
+<component name="ErrorCustomDialog" extends="Group">
+
+  <interface>
+    <field id="errorTitle" type="string" alias="errorText.text" />
+    <field id="errorText" type="string" alias="errorDiscribe.text" />
+
+    <field id="erroBtnClicekd" type="boolean" alwaysNotify="true" />
+  </interface>
+
+  <children>
+    <Poster id="background" uri="pkg:/images/errorBg.png" width="560" height="520">
+      <LayoutGroup id="container" itemSpacings="[22.0, 72.0]">
+        <Label id="errorText" text="Video playback error" horizAlign="center" lineSpacing="2" color="#2C2E35" width="400" wrap="true" height="130" />
+        <Label id="errorDiscribe" lineSpacing="1" text="Unfortunately, we can't play this video now!" wrap="true" horizAlign="center" color="#65666B" width="400" height="78" />
+        <Poster id="btn_background" uri="pkg:/images/buttonErrBg.png" width="390" height="82">
+          <Label id="btn_text" text="Okay" color="#FFFFFF" width="390" height="82" horizAlign="center" vertAlign="center" />
+        </Poster>
+      </LayoutGroup>
+    </Poster>
+  </children>
+
+  <script type="text/brightscript" uri="ErrorCustomDialog.brs" />
+  <script type="text/brightscript" uri="pkg:/components/Classes/Utils/config.brs" />
+</component> 

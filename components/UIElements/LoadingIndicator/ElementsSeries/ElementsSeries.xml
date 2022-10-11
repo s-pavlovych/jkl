@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
+ 
+<component name = "ElementsSeries" extends = "Group" >
+ 
+  <interface> 
+    <field id = "itemContent" type = "node" onChange = "showcontent"/>
+    <field id = "focusPercent" type = "float" onChange = "showfocus"/> 
+    <field id = "rowListHasFocus" type = "bool" onChange="rowListChangeFocus"/>
+    <field id = "rowFocusPercent" type = "float" onChange = "showrowfocus"/>
+  </interface>
+ 
+  <script type = "text/brightscript" uri="pkg:/components/UIElements/LoadingIndicator/ElementsSeries/ElementsSeries.brs" />
+
+  <children>
+         <Poster id = "itemIcon" translation = "[15, 15]"  width="1144" height="600" loadWidth="1144" loadDisplayMode = "scaleToZoom"/>
+  </children>
+</component>

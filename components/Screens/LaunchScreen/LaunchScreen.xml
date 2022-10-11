@@ -1,0 +1,14 @@
+<component name="LaunchScreen" extends="BaseScreen">
+  <script type="text/brightscript" uri="pkg:/components/Screens/LaunchScreen/LaunchScreen.brs" />
+
+  <interface>
+    <field id="startupInfoDidLoad" type="boolean" value="false" alwaysNotify="true" />
+
+    <function name="getStartupInfo" />
+  </interface>
+
+  <children>
+    <Poster id="background" width="1920" height="1080" uri="pkg:/images/$$RES$$/splash.png" visible="true" />
+    <LoadingIndicator id="loadingProgress" imageUri="pkg:/images/loader.png" backgroundColor="0x000000" imageWidth="100" fadeInterval="0" text="" translation="[0,370]" backgroundOpacity="0" />
+  </children>
+</component>
